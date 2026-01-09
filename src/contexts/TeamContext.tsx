@@ -1,3 +1,4 @@
+/* eslint-disable react-refresh/only-export-components */
 import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 export interface TeamMember {
@@ -41,7 +42,7 @@ export const TeamProvider: React.FC<TeamProviderProps> = ({ children }) => {
         { id: '1', name: 'Abdur', role: 'Founder, Gen AI Specialist, IoT Developer', image: '/src/team/abdur.jpg' },
         { id: '2', name: 'Afsal', role: 'Co-founder, CEO', image: '/src/team/afsal.jpg' },
         { id: '3', name: 'Allen', role: 'Co-founder, MD', image: '/src/team/allen.jpg' },
-        { id: '4', name: 'Balaji', role: 'Co-founder, Developer Lead & HR', image: '/src/team/balaji.jpg' },
+
         { id: '5', name: 'Mafaz', role: 'Co-founder, AI Specialist & Prompt Engineer', image: '/src/team/mafaz.jpg' },
         { id: '6', name: 'Safiq', role: 'Co-founder, Creative Designer & Developer', image: '/src/team/safiq.jpg' },
       ];

@@ -1,11 +1,11 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
-import { ArrowRightIcon, BoxIcon } from 'lucide-react';
+import { ArrowRightIcon, LucideIcon } from 'lucide-react';
 
 interface ServiceCardProps {
   title: string;
   description: string;
-  icon: BoxIcon;
+  icon: LucideIcon;
   link: string;
   gradient: string;
   backgroundImage: string;
@@ -21,7 +21,7 @@ export function ServiceCard({
 }: ServiceCardProps) {
   return (
     <Link to={link} className="group">
-      <div 
+      <div
         className="rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 h-full border border-secondary-silver bg-cover bg-center relative overflow-hidden"
         style={{ backgroundImage: `url(${backgroundImage})` }}
       >

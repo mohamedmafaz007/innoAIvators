@@ -4,7 +4,7 @@ import {
   RadarIcon, WavesIcon, SatelliteIcon, ArrowRightIcon, ServerIcon, SignalIcon
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import Galaxy from '../components/Galaxy';
+
 import { BorderBeam } from '../components/BorderBeam';
 import { TechStackCarousel } from '../components/TechStackCarousel';
 
@@ -97,11 +97,7 @@ export function IoTDevelopment() {
       {/* --- HERO SECTION --- */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Galaxy
-            starSpeed={0.2} density={1.5} glowIntensity={0.5}
-            hueShift={150} // Green/Emerald hue
 
-          />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#020502] via-[#020502]/50 to-transparent z-0" />
 
@@ -118,12 +114,13 @@ export function IoTDevelopment() {
             </div>
 
             <h1 className="text-6xl md:text-8xl font-bold leading-[1.05] tracking-tight text-white">
-              Bridge the <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 text-glow">Physical Divide.</span>
+              Custom <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-400 to-cyan-400 text-glow">IoT Solutions</span>
             </h1>
 
             <p className="text-xl text-gray-300 max-w-xl leading-relaxed">
-              We connect devices, data, and decisions. Building the nervous system of the modern enterprise.
+              Designing intelligent IoT solutions for connected ecosystems.
+              Enhancing efficiency through secure, scalable smart systems.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -137,6 +134,15 @@ export function IoTDevelopment() {
                 <span className="relative flex items-center gap-2">
                   Connect Now <ArrowRightIcon className="w-4 h-4" />
                 </span>
+              </motion.a>
+
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="#process"
+                className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all backdrop-blur-sm"
+              >
+                Our Process
               </motion.a>
             </div>
 
@@ -196,6 +202,27 @@ export function IoTDevelopment() {
 
       {/* --- TECH STACK CAROUSEL --- */}
       <TechStackCarousel technologies={technologies} />
+
+      {/* --- WHY IOT DEVELOPMENT SECTION --- */}
+      <section className="py-20 relative">
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto relative p-10 rounded-[2rem] bg-gradient-to-br from-emerald-950/40 to-teal-950/40 backdrop-blur-xl border-2 border-emerald-500/30 shadow-[0_0_50px_rgba(16,185,129,0.2)] overflow-hidden"
+          >
+            <BorderBeam duration={10} size={300} colorFrom="#10b981" colorTo="#34d399" />
+
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 relative z-10">
+              Why I need <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">IoT development?</span>
+            </h2>
+            <p className="text-xl text-gray-400 leading-relaxed relative z-10">
+              IoT transforms physical operations into digital intelligence. By connecting your assets, you gain real-time visibility, predictive maintenance capabilities, and data-driven insights that drive efficiency. Whether it's optimizing supply chains or creating smart products, IoT development bridges the gap between the physical and digital worlds, unlocking new value and competitive advantages.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
       {/* --- CAPABILITIES SECTION --- */}
       <section className="py-32 relative">
@@ -298,10 +325,7 @@ export function IoTDevelopment() {
       {/* --- CTA SECTION --- */}
       <section className="py-40 relative overflow-hidden">
         <div className="absolute inset-0 bg-[#051005]">
-          <Galaxy
-            starSpeed={0.1} density={1}
 
-          />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black" />
         </div>
 
@@ -313,10 +337,11 @@ export function IoTDevelopment() {
             className="max-w-4xl mx-auto"
           >
             <h2 className="text-6xl md:text-8xl font-bold text-white mb-10 tracking-tight text-glow">
-              Connect Your <br /><span className="italic font-serif text-emerald-400">Empire.</span>
+              Ready to connect <br /><span className="italic font-serif text-emerald-400">your devices?</span>
             </h2>
             <p className="text-2xl text-emerald-200 mb-16 max-w-2xl mx-auto">
-              From the edge to the cloud, we build the infrastructure that powers the future.
+              We build smart IoT solutions that link devices, systems, and data.
+              Helping businesses monitor, automate, and grow efficiently.
             </p>
 
             <motion.a

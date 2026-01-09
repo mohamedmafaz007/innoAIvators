@@ -28,6 +28,11 @@ export interface StaggeredMenuProps {
   onMenuClose?: () => void;
 }
 
+
+interface CustomCSSProperties extends React.CSSProperties {
+  '--sm-accent'?: string;
+}
+
 export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
   position = 'right',
   colors = ['rgba(24,24,34,0.9)', 'rgba(9,9,20,0.85)'],
@@ -126,6 +131,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     const panelStart = Number(gsap.getProperty(panel, 'xPercent'));
 
     if (itemEls.length) gsap.set(itemEls, { yPercent: 140, rotate: 10 });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     if (numberEls.length) gsap.set(numberEls, { ['--sm-num-opacity' as any]: 0 });
     if (socialTitle) gsap.set(socialTitle, { opacity: 0 });
     if (socialLinks.length) gsap.set(socialLinks, { y: 25, opacity: 0 });
@@ -160,6 +166,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
       if (numberEls.length) {
         tl.to(
           numberEls,
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           { duration: 0.6, ease: 'power2.out', ['--sm-num-opacity' as any]: 1, stagger: { each: 0.08, from: 'start' } },
           itemsStart + 0.1
         );
@@ -190,7 +197,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 
     openTlRef.current = tl;
     return tl;
-  }, [position]);
+  }, []);
 
   const playOpen = useCallback(() => {
     if (busyRef.current) return;
@@ -232,6 +239,8 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
         const numberEls = Array.from(
           panel.querySelectorAll('.sm-panel-list[data-numbering] .sm-panel-item')
         ) as HTMLElement[];
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         if (numberEls.length) gsap.set(numberEls, { ['--sm-num-opacity' as any]: 0 });
 
         const socialTitle = panel.querySelector('.sm-socials-title') as HTMLElement | null;
@@ -348,15 +357,14 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
     ? { position: 'fixed', top: 0, left: 0, width: 0, height: 0 }
     : undefined;
 
-  const wrapperClassName = `${className ? className + ' ' : ''}staggered-menu-wrapper relative z-40${
-    isFixed ? '' : ' w-full h-full'
-  }`;
+  const wrapperClassName = `${className ? className + ' ' : ''}staggered-menu-wrapper relative z-40${isFixed ? '' : ' w-full h-full'
+    }`;
 
   return (
     <div className="sm-scope z-40" data-fixed={isFixed || undefined} style={scopeStyle}>
       <div
         className={wrapperClassName}
-        style={accentColor ? ({ ['--sm-accent' as any]: accentColor } as React.CSSProperties) : undefined}
+        style={accentColor ? ({ '--sm-accent': accentColor } as CustomCSSProperties) : undefined}
         data-position={position}
         data-open={open || undefined}
       >
@@ -399,9 +407,8 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
 
           <button
             ref={toggleBtnRef}
-            className={`sm-toggle relative inline-flex items-center gap-[0.3rem] bg-transparent border-0 cursor-pointer font-medium leading-none overflow-visible pointer-events-auto ${
-              open ? 'text-[#f5f5ff]' : 'text-[#e9e9ef]'
-            }`}
+            className={`sm-toggle relative inline-flex items-center gap-[0.3rem] bg-transparent border-0 cursor-pointer font-medium leading-none overflow-visible pointer-events-auto ${open ? 'text-[#f5f5ff]' : 'text-[#e9e9ef]'
+              }`}
             aria-label={open ? 'Close menu' : 'Open menu'}
             aria-expanded={open}
             aria-controls="staggered-menu-panel"

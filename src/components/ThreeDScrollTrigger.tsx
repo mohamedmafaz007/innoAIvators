@@ -19,14 +19,6 @@ import {
 import type { MotionValue } from "framer-motion";
 import { cn } from "../lib/utils";
 
-/* -------------------------
-   Utility: wrap (unchanged)
-   ------------------------- */
-export const wrap = (min: number, max: number, v: number) => {
-  const rangeSize = max - min;
-  return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min;
-};
-
 /* -----------------------------------
    Context to share velocity between rows
    ----------------------------------- */
@@ -104,10 +96,12 @@ function ThreeDScrollTriggerRowImpl({
   direction = 1,
   className,
   velocityFactor,
+  resetIntervalMs, // destructure to avoid passing to DOM
   ...props
 }: ThreeDScrollTriggerRowImplProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [numCopies, setNumCopies] = useState(3);
+  const [isHovered, setIsHovered] = useState(false);
   const x = useMotionValue(0);
 
   const prevTimeRef = useRef<number | null>(null);
@@ -142,6 +136,12 @@ function ThreeDScrollTriggerRowImpl({
 
   // Animation loop
   useAnimationFrame((time) => {
+    // Pause animation when hovered
+    if (isHovered) {
+      prevTimeRef.current = time;
+      return;
+    }
+
     if (prevTimeRef.current == null) prevTimeRef.current = time;
     const dt = Math.max(0, (time - prevTimeRef.current) / 1000);
     prevTimeRef.current = time;
@@ -158,16 +158,16 @@ function ThreeDScrollTriggerRowImpl({
     const moveBy = currentDirection * pixelsPerSecond * (1 + speedMultiplier) * dt;
 
     const newX = baseXRef.current + moveBy;
-    
+
     // ✅ FIXED: Proper wrapping in both directions
     // When moving right (positive newX), wrap back
     if (newX >= unitWidth) {
       baseXRef.current = newX % unitWidth;
-    } 
+    }
     // When moving left (negative newX), wrap forward
     else if (newX <= 0) {
       baseXRef.current = unitWidth + (newX % unitWidth);
-    } 
+    }
     else {
       baseXRef.current = newX;
     }
@@ -181,6 +181,8 @@ function ThreeDScrollTriggerRowImpl({
     <div
       ref={containerRef}
       className={cn("w-full overflow-hidden whitespace-nowrap", className)}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
       {...props}
     >
       <motion.div

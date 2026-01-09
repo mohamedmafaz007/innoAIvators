@@ -1,6 +1,7 @@
-import React from 'react';
+
 import { Link } from 'react-router-dom';
-import { Facebook, Twitter, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Facebook, Linkedin, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import logo from '../assets/logo.jpg';
 
 export function Footer() {
   const services = [
@@ -19,10 +20,17 @@ export function Footer() {
   ];
 
   const socialLinks = [
-    { icon: <Facebook size={20} />, href: '#' },
-    { icon: <Twitter size={20} />, href: '#' },
+    { icon: <Facebook size={20} />, href: 'https://www.facebook.com/share/1Buxv7SZ6c/' },
+    {
+      icon: (
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+          <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+        </svg>
+      ),
+      href: '#'
+    },
     { icon: <Linkedin size={20} />, href: '#' },
-    { icon: <Instagram size={20} />, href: '#' },
+    { icon: <Instagram size={20} />, href: 'https://www.instagram.com/inno_aivators?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==' },
   ];
 
   return (
@@ -30,7 +38,12 @@ export function Footer() {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
           <div className="md:col-span-4">
-            <h3 className="text-3xl font-bold mb-4">Innoaivators</h3>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 bg-white rounded-lg p-1 flex items-center justify-center">
+                <img src={logo} alt="Innoaivators Logo" className="w-full h-full object-contain" />
+              </div>
+              <h3 className="text-3xl font-bold">Innoaivators</h3>
+            </div>
             <p className="text-gray-400 mb-6">
               Transforming ideas into innovative digital solutions through
               cutting-edge technology and creative excellence.
@@ -86,19 +99,23 @@ export function Footer() {
               <ul className="space-y-3 text-gray-400">
                 <li className="flex items-start">
                   <MapPin size={20} className="mr-3 mt-1 flex-shrink-0" />
-                  <span>123 Innovation Street, Tech City, TC 12345</span>
+                  <span>Near Thanku Bakery, Tirupparankunram Rd, pallivasal complex, Madurai, Tamil Nadu 625011</span>
                 </li>
                 <li className="flex items-center">
                   <Phone size={20} className="mr-3 flex-shrink-0" />
-                  <span>+1 (555) 123-4567</span>
+                  <span>+91 90877 86231</span>
+                </li>
+                <li className="flex items-center">
+                  <Phone size={20} className="mr-3 flex-shrink-0" />
+                  <span>+91 95664 65970</span>
                 </li>
                 <li className="flex items-center">
                   <Mail size={20} className="mr-3 flex-shrink-0" />
                   <a
-                    href="mailto:hello@innoaivators.com"
+                    href="mailto:innoaivation@gmail.com"
                     className="hover:text-white transition-colors duration-300"
                   >
-                    hello@innoaivators.com
+                    innoaivation@gmail.com
                   </a>
                 </li>
               </ul>

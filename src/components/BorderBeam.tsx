@@ -7,7 +7,15 @@ npm i lightswind@latest*/
 
 import React from "react";
 import { cn } from "../lib/utils";
-import { motion } from "framer-motion";
+import { motion, Transition } from "framer-motion";
+
+
+interface CustomCSSProperties extends React.CSSProperties {
+  offsetPath?: string;
+  "--color-from"?: string;
+  "--color-to"?: string;
+  "--border-width"?: string;
+}
 
 interface BorderBeamProps {
   /**
@@ -33,7 +41,7 @@ interface BorderBeamProps {
   /**
    * The motion transition of the border beam.
    */
-  transition?: any;
+  transition?: Transition;
   /**
    * The class name of the border beam.
    */
@@ -96,14 +104,14 @@ export const BorderBeam = ({
 }: BorderBeamProps) => {
   // Calculate actual duration based on speed multiplier
   const actualDuration = speedMultiplier ? duration / speedMultiplier : duration;
-  
+
   // Generate box shadow for glow effect
-  const glowEffect = glowIntensity > 0 
-    ? `0 0 ${glowIntensity * 5}px ${glowIntensity * 2}px var(--color-from)` 
+  const glowEffect = glowIntensity > 0
+    ? `0 0 ${glowIntensity * 5}px ${glowIntensity * 2}px var(--color-from)`
     : undefined;
 
   return (
- <div className="pointer-events-none absolute inset-0 rounded-[inherit] 
+    <div className="pointer-events-none absolute inset-0 rounded-[inherit] 
     border border-transparent [mask-clip:padding-box,border-box] 
     [mask-composite:intersect] [mask-image:linear-gradient(transparent,transparent),linear-gradient(#000,#000)]"
       style={{
@@ -127,7 +135,7 @@ export const BorderBeam = ({
           boxShadow: glowEffect,
           borderRadius: beamBorderRadius ? `${beamBorderRadius}px` : undefined,
           ...style,
-        } as any}
+        } as CustomCSSProperties}
         initial={{ offsetDistance: `${initialOffset}%` }}
         animate={{
           offsetDistance: reverse

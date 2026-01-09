@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useCallback, useEffect } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { motion, AnimatePresence, TargetAndTransition} from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '../lib/utils'; // Assuming this utility correctly merges class names
 import useMediaQuery from '../hooks/useMediaQuery';
 
@@ -104,7 +104,12 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
   initialIndex = 0,
 }) => {
   const isLg = useMediaQuery('(min-width: 1024px)');
-  const visibleCards = isLg ? visibleCardsProp : 1;
+
+  // Clamp visibleCards to ensure balanced layout: max (totalMembers - 1) / 2
+  const maxVisible = Math.max(1, Math.floor((members.length - 1) / 2));
+  const effectiveVisibleCardsProp = Math.min(visibleCardsProp, maxVisible);
+
+  const visibleCards = isLg ? effectiveVisibleCardsProp : 1;
   const sideCardScale = isLg ? sideCardScaleProp : 0.8;
   const [currentIndex, setCurrentIndex] = useState(initialIndex);
   const [direction, setDirection] = useState(0); // 0: no movement, 1: next, -1: prev
@@ -139,7 +144,7 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
   };
 
   // Explicitly type the return of getVariantStyles to match framer-motion's expectations
-  const getVariantStyles = (position: string): TargetAndTransition => {
+  const getVariantStyles = (position: string): any => {
     // FIX: Changed ease from number[] to an array of string presets or a valid CubicBezier type
     // Using string presets for simplicity and type compatibility.
     // If you need the exact cubic-bezier values, ensure they are compatible with framer-motion's Easing type.
@@ -477,7 +482,7 @@ export const TeamCarousel: React.FC<TeamCarouselProps> = ({
                   setCurrentIndex(index);
                 }
               }}
-              className={('w-3 h-3 rounded-full transition-colors', {
+              className={cn('w-3 h-3 rounded-full transition-colors', {
                 'bg-blue-500': index === currentIndex,
                 'bg-gray-400': index !== currentIndex,
               })}

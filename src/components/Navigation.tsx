@@ -1,17 +1,29 @@
-import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Sparkles } from 'lucide-react';
+import { Menu, X, ChevronDown } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 import { NAV_LINKS, SERVICE_LINKS } from '../config/constants';
+import logo from '../assets/logo.jpg';
+
+interface NavLink {
+  name: string;
+  path: string;
+}
+
+interface ServiceLink {
+  name: string;
+  path: string;
+  color: string;
+}
 
 export function Navigation() {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const [isScrolled, setIsScrolled] = React.useState(false);
-  const [servicesOpen, setServicesOpen] = React.useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
   const location = useLocation();
 
-  React.useEffect(() => {
+  useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -19,8 +31,8 @@ export function Navigation() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const services = SERVICE_LINKS;
-  const navLinks = NAV_LINKS;
+  const services: ServiceLink[] = SERVICE_LINKS;
+  const navLinks: NavLink[] = NAV_LINKS;
 
   const isActive = (path: string) => location.pathname === path;
 
@@ -36,15 +48,15 @@ export function Navigation() {
         <div className="flex justify-between items-center">
           {/* Logo */}
           <Link to="/" className="flex items-center gap-2 group">
-            <div className="relative w-8 h-8 flex items-center justify-center bg-gradient-to-tr from-blue-600 to-purple-600 rounded-lg overflow-hidden group-hover:scale-110 transition-transform">
-              <Sparkles className="w-5 h-5 text-white animate-pulse" />
+            <div className="relative w-10 h-10 flex items-center justify-center rounded-lg overflow-hidden group-hover:scale-110 transition-transform bg-white">
+              <img src={logo} alt="Innoaivators Logo" className="w-full h-full object-contain" />
             </div>
             <span className="text-xl font-bold text-white tracking-tight">Innoaivators</span>
           </Link>
 
           {/* Desktop Links */}
           <div className="flex items-center space-x-1">
-            {navLinks.map((link) => (
+            {navLinks.map((link: NavLink) => (
               <Link
                 key={link.path}
                 to={link.path}
@@ -69,7 +81,7 @@ export function Navigation() {
               onMouseLeave={() => setServicesOpen(false)}
             >
               <button
-                className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${services.some(s => isActive(s.path)) ? 'text-white bg-white/10' : 'text-gray-400 hover:text-white hover:bg-white/5'
+                className={`flex items-center gap-1 px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ${services.some((s: ServiceLink) => isActive(s.path)) ? 'text-white bg-white/10' : 'text-gray-400 hover:text-white hover:bg-white/5'
                   }`}
               >
                 <span>Services</span>
@@ -86,7 +98,7 @@ export function Navigation() {
                     className="absolute top-full left-1/2 -translate-x-1/2 mt-4 w-72 bg-[#0A0A15]/95 backdrop-blur-2xl border border-white/10 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] overflow-hidden"
                   >
                     <div className="p-2 space-y-1">
-                      {services.map((service) => (
+                      {services.map((service: ServiceLink) => (
                         <Link
                           key={service.path}
                           to={service.path}
@@ -157,7 +169,7 @@ export function Navigation() {
                 </button>
 
                 <div className="flex flex-col gap-8 mt-8">
-                  {navLinks.map((link) => (
+                  {navLinks.map((link: NavLink) => (
                     <Link
                       key={link.path}
                       to={link.path}
@@ -170,7 +182,7 @@ export function Navigation() {
 
                   <div className="space-y-4">
                     <div className="text-sm font-bold text-white/30 uppercase tracking-widest">Services</div>
-                    {services.map((service) => (
+                    {services.map((service: ServiceLink) => (
                       <Link
                         key={service.path}
                         to={service.path}

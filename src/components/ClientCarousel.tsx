@@ -1,4 +1,3 @@
-import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 
@@ -13,11 +12,6 @@ const logos = [
   clientLogo1,
   clientLogo2,
   clientLogo3,
-  'https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg',
-  'https://upload.wikimedia.org/wikipedia/commons/4/44/Microsoft_logo.svg',
-  'https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg',
-  'https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg',
-  'https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg',
 ];
 
 const duplicatedLogos = [...logos, ...logos];
@@ -41,8 +35,8 @@ export function ClientCarousel() {
         >
           {duplicatedLogos.map((logo, index) => (
             <SwiperSlide key={index} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-              <div style={{ width: '150px', height: '50px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <img src={logo} alt={`Client logo ${index + 1}`} className="max-h-12 max-w-full" />
+              <div style={{ width: '200px', height: '120px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '10px' }}>
+                <img src={logo} alt={`Client logo ${index + 1}`} className="max-h-24 max-w-full object-contain" />
               </div>
             </SwiperSlide>
           ))}

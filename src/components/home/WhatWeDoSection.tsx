@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import { WHAT_WE_DO_DATA } from '../../config/constants';
 

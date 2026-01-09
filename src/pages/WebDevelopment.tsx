@@ -4,7 +4,7 @@ import {
   PaletteIcon, LayersIcon, SparklesIcon, ArrowRightIcon, CheckCircleIcon
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import Galaxy from '../components/Galaxy';
+
 import { BorderBeam } from '../components/BorderBeam';
 import { TechStackCarousel } from '../components/TechStackCarousel';
 
@@ -96,15 +96,7 @@ export function WebDevelopment() {
 
       {/* --- HERO SECTION --- */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Galaxy WebGL Background */}
-        <div className="absolute inset-0 z-0">
-          <Galaxy
-            starSpeed={0.5}
-            density={1.5}
-            glowIntensity={0.6}
-            hueShift={240} // Blue/Indigo hue
-          />
-        </div>
+
 
         {/* Gradient Overlay for Text Readability */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#020205] via-transparent to-transparent z-0" />
@@ -127,12 +119,13 @@ export function WebDevelopment() {
             </motion.div>
 
             <h1 className="text-6xl md:text-8xl font-bold leading-[1.05] tracking-tight text-white">
-              Forge Your <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-glow">Digital Legacy.</span>
+              Modern Web <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 text-glow">Development Solutions</span>
             </h1>
 
             <p className="text-xl text-gray-400 max-w-xl leading-relaxed">
-              We engineer pixel-perfect, high-performance web experiences that captivate users and drive conversion.
+              Building powerful websites that represent your brand.
+              Driving growth through modern, user-focused web solutions.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -144,7 +137,7 @@ export function WebDevelopment() {
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 opacity-0 group-hover:opacity-10 transition-opacity" />
                 <span className="relative flex items-center gap-2">
-                  Start Project <ArrowRightIcon className="w-4 h-4" />
+                  Go online <ArrowRightIcon className="w-4 h-4" />
                 </span>
               </motion.a>
 
@@ -235,6 +228,27 @@ export function WebDevelopment() {
 
       {/* --- TECH STACK CAROUSEL --- */}
       <TechStackCarousel technologies={technologies} />
+
+      {/* --- WHY WEB DEVELOPMENT SECTION --- */}
+      <section className="py-20 relative">
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto relative p-10 rounded-[2rem] bg-gradient-to-br from-indigo-950/40 to-purple-950/40 backdrop-blur-xl border-2 border-indigo-500/30 shadow-[0_0_50px_rgba(99,102,241,0.2)] overflow-hidden"
+          >
+            <BorderBeam duration={10} size={300} colorFrom="#6366f1" colorTo="#ec4899" />
+
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 relative z-10">
+              Why I need <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-400 to-purple-400">web development?</span>
+            </h2>
+            <p className="text-xl text-gray-400 leading-relaxed relative z-10">
+              In today's digital-first world, your website is your 24/7 storefront, brand ambassador, and primary sales channel. A professional web presence establishes credibility, expands your reach beyond geographical boundaries, and provides a platform to engage with your audience on their terms. It's not just about having a website; it's about having a powerful tool that drives business growth.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
       {/* --- CAPABILITIES SECTION --- */}
       <section className="py-32 relative">
@@ -345,10 +359,7 @@ export function WebDevelopment() {
       {/* --- CALL TO ACTION --- */}
       <section className="py-40 relative overflow-hidden">
         <div className="absolute inset-0 bg-indigo-950">
-          {/* Add a second galaxy instance for the footer area with different colors */}
-          <Galaxy
-            starSpeed={0.2} density={0.8} repulsionStrength={4}
-          />
+
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black" />
         </div>
 
@@ -360,10 +371,11 @@ export function WebDevelopment() {
             className="max-w-4xl mx-auto"
           >
             <h2 className="text-6xl md:text-8xl font-bold text-white mb-10 tracking-tight text-glow">
-              Ready to <br /><span className="italic font-serif text-indigo-400">Transcend?</span>
+              Ready to take your <br /><span className="italic font-serif text-indigo-400">business online?</span>
             </h2>
             <p className="text-2xl text-indigo-200 mb-16 max-w-2xl mx-auto">
-              Stop competing. Start dominating. Let's build a web presence that defines your industry.
+              We create modern, user-friendly websites tailored to your goals.
+              Build trust, attract customers, and grow with a strong web presence.
             </p>
 
             <motion.a

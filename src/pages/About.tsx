@@ -1,4 +1,4 @@
-import React from 'react';
+
 import './About.css';
 import { TargetIcon, UsersIcon, TrophyIcon, RocketIcon } from 'lucide-react';
 import { motion } from 'framer-motion';
@@ -8,7 +8,7 @@ import video from '../backgroundeffects/3129977-uhd_3840_2160_30fps.mp4';
 import abdur from '../team/abdur.jpg';
 import afsal from '../team/afsal.jpg';
 import allen from '../team/allen.jpg';
-import balaji from '../team/balaji.jpg';
+
 import mafaz from '../team/mafaz.jpg';
 import safiq from '../team/safiq.jpg';
 import useMediaQuery from '../hooks/useMediaQuery';
@@ -60,12 +60,7 @@ export function About() {
       role: 'Co-founder, MD',
       image: allen,
     },
-    {
-      id: '4',
-      name: 'Balaji',
-      role: 'Co-founder, Developer Lead & HR',
-      image: balaji,
-    },
+
     {
       id: '5',
       name: 'Mafaz',
@@ -161,7 +156,7 @@ export function About() {
               <h2 className="text-4xl font-bold text-center text-white mb-2">
                 Our Team
               </h2>
-              <TeamCarousel members={members} infoPosition="bottom" infoBackground="rgba(0, 0, 0, 0.5)" autoPlay={3000} infoTextColor="white" visibleCards={3} />
+              <TeamCarousel members={members} infoPosition="bottom" infoBackground="rgba(0, 0, 0, 0.5)" autoPlay={3000} infoTextColor="white" visibleCards={2} />
             </motion.div>
 
             <motion.div

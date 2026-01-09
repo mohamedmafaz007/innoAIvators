@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 import ThreeDScrollTriggerRow, { ThreeDScrollTriggerContainer } from '../ThreeDScrollTrigger';
 import { TESTIMONIALS_DATA } from '../../config/constants';
 

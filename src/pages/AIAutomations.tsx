@@ -4,7 +4,7 @@ import {
   ShieldIcon, ArrowRightIcon, SparklesIcon, CpuIcon, NetworkIcon
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import Galaxy from '../components/Galaxy';
+
 import { BorderBeam } from '../components/BorderBeam';
 import { TechStackCarousel } from '../components/TechStackCarousel';
 
@@ -98,10 +98,7 @@ export function AIAutomations() {
       {/* --- HERO SECTION --- */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Galaxy
-            starSpeed={0.4} density={1.4} glowIntensity={0.7}
-            hueShift={280} // Violet/Rose hue
-          />
+
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#050205] via-[#050205]/50 to-transparent z-0" />
 
@@ -123,7 +120,8 @@ export function AIAutomations() {
             </h1>
 
             <p className="text-xl text-gray-400 max-w-xl leading-relaxed">
-              Liberate your workforce. We build autonomous AI systems that handle the heavy lifting, 24/7/365.
+              Automating business processes with intelligent AI solutions.
+              Improving efficiency, accuracy, and scalable growth.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -137,6 +135,15 @@ export function AIAutomations() {
                 <span className="relative flex items-center gap-2">
                   Automate Now <ArrowRightIcon className="w-4 h-4" />
                 </span>
+              </motion.a>
+
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="#process"
+                className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all backdrop-blur-sm"
+              >
+                Our Process
               </motion.a>
             </div>
 
@@ -303,9 +310,7 @@ export function AIAutomations() {
       {/* --- CTA SECTION --- */}
       <section className="py-40 relative overflow-hidden">
         <div className="absolute inset-0 bg-[#050205]">
-          <Galaxy
-            starSpeed={0.1} density={1}
-          />
+
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black" />
         </div>
 
@@ -317,10 +322,11 @@ export function AIAutomations() {
             className="max-w-4xl mx-auto"
           >
             <h2 className="text-6xl md:text-8xl font-bold text-white mb-10 tracking-tight text-glow">
-              Initialize <br /><span className="italic font-serif text-rose-400">Protocol.</span>
+              Ready to automate <br /><span className="italic font-serif text-rose-400">your business processes?</span>
             </h2>
             <p className="text-2xl text-rose-200 mb-16 max-w-2xl mx-auto">
-              The future belongs to the automated. Claim your advantage.
+              We use AI to automate tasks, reduce manual work, and improve efficiency.
+              Helping your business save time, reduce costs, and scale faster.
             </p>
 
             <motion.a

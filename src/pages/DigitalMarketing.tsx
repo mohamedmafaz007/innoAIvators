@@ -4,7 +4,7 @@ import {
   UsersIcon, MailIcon, PenToolIcon, Share2Icon, ArrowRightIcon, BarChart3Icon
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import Galaxy from '../components/Galaxy';
+
 import { BorderBeam } from '../components/BorderBeam';
 
 export function DigitalMarketing() {
@@ -91,11 +91,7 @@ export function DigitalMarketing() {
       {/* --- HERO SECTION --- */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Galaxy
-            starSpeed={0.6} density={1.2} glowIntensity={0.8}
-            hueShift={20} // Orange/Red hue
 
-          />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#050202] via-[#050202]/50 to-transparent z-0" />
 
@@ -112,12 +108,13 @@ export function DigitalMarketing() {
             </div>
 
             <h1 className="text-6xl md:text-8xl font-bold leading-[1.05] tracking-tight text-white">
-              Ignite Your <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-amber-400 text-glow">Brand Velocity.</span>
+              Result-Driven <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-red-500 to-amber-400 text-glow">Digital Marketing</span>
             </h1>
 
             <p className="text-xl text-gray-300 max-w-xl leading-relaxed">
-              We turn attention into action. Data-driven strategies that scale your business predictably.
+              Driving brand growth through data-driven digital marketing strategies.
+              Delivering measurable results across every online channel.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -131,6 +128,15 @@ export function DigitalMarketing() {
                 <span className="relative flex items-center gap-2">
                   Scale Revenue <ArrowRightIcon className="w-4 h-4" />
                 </span>
+              </motion.a>
+
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="#process"
+                className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all backdrop-blur-sm"
+              >
+                Our Process
               </motion.a>
             </div>
 
@@ -191,8 +197,29 @@ export function DigitalMarketing() {
         </div>
       </section>
 
+      {/* --- WHY DIGITAL MARKETING SECTION --- */}
+      <section className="py-20 relative">
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto relative p-10 rounded-[2rem] bg-gradient-to-br from-orange-950/40 to-red-950/40 backdrop-blur-xl border-2 border-orange-500/30 shadow-[0_0_50px_rgba(249,115,22,0.2)] overflow-hidden"
+          >
+            <BorderBeam duration={10} size={300} colorFrom="#f97316" colorTo="#ef4444" />
+
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 relative z-10">
+              Why I need <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-500">digital marketing?</span>
+            </h2>
+            <p className="text-xl text-gray-400 leading-relaxed relative z-10">
+              In a crowded digital landscape, visibility is currency. Digital marketing isn't just about ads; it's about building a data-driven engine that consistently attracts, engages, and converts your ideal customers. It amplifies your brand's voice, targets the right audience with laser precision, and delivers measurable ROI that fuels sustainable business growth.
+            </p>
+          </motion.div>
+        </div>
+      </section >
+
       {/* --- CAPABILITIES SECTION --- */}
-      <section className="py-32 relative">
+      < section className="py-32 relative" >
         <div className="container mx-auto px-6 relative z-10">
           <div className="text-center max-w-3xl mx-auto mb-20">
             <h2 className="text-sm font-bold tracking-[0.3em] text-orange-400 uppercase mb-4 text-glow-mild">Tactics</h2>
@@ -222,10 +249,10 @@ export function DigitalMarketing() {
             ))}
           </div>
         </div>
-      </section>
+      </section >
 
       {/* --- JOURNEY SECTION --- */}
-      <section id="process" className="py-32 bg-black relative">
+      < section id="process" className="py-32 bg-black relative" >
         <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-orange-900 to-transparent" />
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
@@ -281,15 +308,12 @@ export function DigitalMarketing() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section >
 
       {/* --- CTA SECTION --- */}
-      <section className="py-40 relative overflow-hidden">
+      < section className="py-40 relative overflow-hidden" >
         <div className="absolute inset-0 bg-[#050202]">
-          <Galaxy
-            starSpeed={0.1} density={1}
 
-          />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black" />
         </div>
 
@@ -301,10 +325,11 @@ export function DigitalMarketing() {
             className="max-w-4xl mx-auto"
           >
             <h2 className="text-6xl md:text-8xl font-bold text-white mb-10 tracking-tight text-glow">
-              Go Viral <br /><span className="italic font-serif text-orange-400">Tonight.</span>
+              Ready to reach <br /><span className="italic font-serif text-orange-400">the right audience?</span>
             </h2>
             <p className="text-2xl text-orange-200 mb-16 max-w-2xl mx-auto">
-              Your audience is scrolling right now. Make them stop.
+              We help your business grow online through targeted digital marketing.
+              Attract customers, increase visibility, and boost conversions.
             </p>
 
             <motion.a
@@ -318,9 +343,9 @@ export function DigitalMarketing() {
             </motion.a>
           </motion.div>
         </div>
-      </section>
+      </section >
 
 
-    </div>
+    </div >
   );
 }

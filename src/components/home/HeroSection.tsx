@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { motion } from 'framer-motion';
 import Galaxy from '../Galaxy';
 import useMediaQuery from '../../hooks/useMediaQuery';

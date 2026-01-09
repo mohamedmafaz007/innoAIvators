@@ -3,7 +3,7 @@ import {
   ShieldIcon, ArrowRightIcon, CodeIcon, WifiIcon, CpuIcon, SmartphoneIcon, LayersIcon, RocketIcon, SparklesIcon, PaletteIcon
 } from 'lucide-react';
 import { motion } from 'framer-motion';
-import Galaxy from '../components/Galaxy';
+
 import { BorderBeam } from '../components/BorderBeam';
 import { TechStackCarousel } from '../components/TechStackCarousel';
 
@@ -96,13 +96,7 @@ export function AppDevelopment() {
       {/* --- HERO SECTION --- */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Galaxy
-            starSpeed={0.3}
-            density={1.2}
-            glowIntensity={0.8}
-            hueShift={300} // Pink/Purple/Cyan mix
 
-          />
         </div>
         <div className="absolute inset-0 bg-gradient-to-t from-[#050510] via-[#050510]/50 to-transparent z-0" />
 
@@ -119,12 +113,13 @@ export function AppDevelopment() {
             </div>
 
             <h1 className="text-6xl md:text-8xl font-bold leading-[1.05] tracking-tight text-white">
-              Apps that <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-fuchsia-400 text-glow">Demand Attention.</span>
+              Complete <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-blue-400 to-fuchsia-400 text-glow">Android & iOS App Development</span>
             </h1>
 
             <p className="text-xl text-gray-300 max-w-xl leading-relaxed">
-              We build fluid, powerful, and addictive mobile experiences that users love to touch.
+              Transforming ideas into powerful mobile applications.
+              Crafted for innovation, growth, and user engagement.
             </p>
 
             <div className="flex flex-wrap gap-4 pt-4">
@@ -138,6 +133,15 @@ export function AppDevelopment() {
                 <span className="relative flex items-center gap-2">
                   Launch App <ArrowRightIcon className="w-4 h-4" />
                 </span>
+              </motion.a>
+
+              <motion.a
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                href="#process"
+                className="px-8 py-4 bg-white/5 border border-white/10 text-white font-bold rounded-full hover:bg-white/10 transition-all backdrop-blur-sm"
+              >
+                Our Process
               </motion.a>
             </div>
 
@@ -215,6 +219,27 @@ export function AppDevelopment() {
 
       {/* --- TECH STACK CAROUSEL --- */}
       <TechStackCarousel technologies={technologies} />
+
+      {/* --- WHY APP DEVELOPMENT SECTION --- */}
+      <section className="py-20 relative">
+        <div className="container mx-auto px-6 relative z-10 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-4xl mx-auto relative p-10 rounded-[2rem] bg-gradient-to-br from-cyan-950/40 to-blue-950/40 backdrop-blur-xl border-2 border-cyan-500/30 shadow-[0_0_50px_rgba(34,211,238,0.2)] overflow-hidden"
+          >
+            <BorderBeam duration={10} size={300} colorFrom="#22d3ee" colorTo="#d946ef" />
+
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 relative z-10">
+              Why I need <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">app development?</span>
+            </h2>
+            <p className="text-xl text-gray-400 leading-relaxed relative z-10">
+              Mobile apps offer a direct channel to your customers, fostering higher engagement and brand loyalty. With push notifications, personalized experiences, and offline accessibility, an app keeps your business at your customers' fingertips. It's not just software; it's a strategic asset that drives retention and opens new revenue streams in a mobile-first world.
+            </p>
+          </motion.div>
+        </div>
+      </section>
 
       {/* --- CAPABILITIES SECTION --- */}
       <section className="py-32 relative">
@@ -316,10 +341,7 @@ export function AppDevelopment() {
       {/* --- CTA SECTION --- */}
       <section className="py-40 relative overflow-hidden">
         <div className="absolute inset-0 bg-cyan-950">
-          <Galaxy
-            starSpeed={0.1} density={0.5}
 
-          />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black" />
         </div>
 
@@ -331,10 +353,11 @@ export function AppDevelopment() {
             className="max-w-4xl mx-auto"
           >
             <h2 className="text-6xl md:text-8xl font-bold text-white mb-10 tracking-tight text-glow">
-              Ready for the <br /><span className="italic font-serif text-cyan-400">App Store?</span>
+              Ready to launch your <br /><span className="italic font-serif text-cyan-400">mobile app?</span>
             </h2>
             <p className="text-2xl text-cyan-200 mb-16 max-w-2xl mx-auto">
-              Millions of users are waiting. Let's frame your idea in pixel-perfect code.
+              We turn your ideas into high-quality Android and iOS applications.
+              Built for performance, usability, and real business growth.
             </p>
 
             <motion.a
